@@ -1,10 +1,10 @@
 clc;clear;
 
-data1 = load("C:\Users\Akkarasaknarong\Documents\GitHub\F2-2_FRA233_Lab-3_State-Estimation\MATLAB\Part2\Change_Ratio_QR\Specific Change Distance_15sec\rec1.mat");
-data2 = load("C:\Users\Akkarasaknarong\Documents\GitHub\F2-2_FRA233_Lab-3_State-Estimation\MATLAB\Part2\Change_Ratio_QR\Specific Change Distance_15sec\rec2.mat");
-data3 = load("C:\Users\Akkarasaknarong\Documents\GitHub\F2-2_FRA233_Lab-3_State-Estimation\MATLAB\Part2\Change_Ratio_QR\Specific Change Distance_15sec\rec3.mat");
+data1 = load("C:\Users\Akkarasaknarong\Documents\GitHub\F2-2_FRA233_Lab-3_State-Estimation\MATLAB\Part2\Change_Ratio_QR\Random_Distance_10sec\Random_Distance_rec1.mat");
+data2 = load("C:\Users\Akkarasaknarong\Documents\GitHub\F2-2_FRA233_Lab-3_State-Estimation\MATLAB\Part2\Change_Ratio_QR\Random_Distance_10sec\Random_Distance_rec2.mat");
+data3 = load("C:\Users\Akkarasaknarong\Documents\GitHub\F2-2_FRA233_Lab-3_State-Estimation\MATLAB\Part2\Change_Ratio_QR\Random_Distance_10sec\Random_Distance_rec3.mat");
 data_all = {data1,data2,data3} ;
-folder_path = "C:\Users\Akkarasaknarong\Documents\GitHub\F2-2_FRA233_Lab-3_State-Estimation\MATLAB\Part2\Change_Ratio_QR\Specific Change Distance_15sec";
+folder_path = "C:\Users\Akkarasaknarong\Documents\GitHub\F2-2_FRA233_Lab-3_State-Estimation\MATLAB\Part2\Change_Ratio_QR\Random_Distance_10sec";
 
 for i = 1 : 3
     data = data_all{i};
@@ -27,7 +27,7 @@ for i = 1 : 3
         "KF (Q/R Ratio = 0.01)", ...
         "KF (Q/R Ratio = 0.001)", ...
         "KF (Q/R Ratio = 0.0001)", ...
-        Location="northwest");
+        Location="best");
     xlabel("time (s)");
     ylabel("distance (cm)");
 
