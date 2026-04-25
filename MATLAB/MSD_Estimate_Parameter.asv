@@ -1,20 +1,20 @@
 clear; clc;
 
 %% Only Change This Part --------------------------------------------------
-data = load("E:\FIBO\F2-2\FRA233\Lab3\Part1\DamperEstimate\3Nut_rec1.mat");
+data = load("E:\FIBO\F2-2\FRA233\Lab3\Part1\DamperEstimate\5Nut_rec3.mat");
 
 % Prepare Estimate Data
 time_all = data.data{2}.Values.Data ;
 dist_all = data.data{1}.Values.Data / 100;
 
-Nut = 3 ;
-x_inti = 0.0436;
+Nut = 5 ;
+x_inti = 0.07;
 x_final = 0.097413797378540;
 t_inti = time_all(1) ;
 
 % Clipping Time
-time_est = time_all(1:460) - t_inti - 2.3999 - 0.00424;
-dist_est = dist_all(1:460) - x_final - 0.02705;
+time_est = time_all(1:740) - t_inti;
+dist_est = dist_all(1:740) - x_final;
 
 % -------------------------------------------------------------------------
 
