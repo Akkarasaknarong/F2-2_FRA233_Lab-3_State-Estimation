@@ -10,10 +10,10 @@ for i = 1 : 3
     data = data_all{i};
 
     t1 = data.data{5}.Values.Time ;
-    x0 = data.data{3}.Values.Data ; % Raw Distance
-    x1 = data.data{5}.Values.Data ; % R1 = 1e-01
-    x2 = data.data{6}.Values.Data ; % R2 = 1e-02
-    x3 = data.data{7}.Values.Data ; % R3 = 1e-03
+    x0 = data.data{3}.Values.Data / 100 ; % Raw Distance
+    x1 = data.data{5}.Values.Data / 100 ; % R1 = 1e-01
+    x2 = data.data{6}.Values.Data / 100 ; % R2 = 1e-02
+    x3 = data.data{7}.Values.Data / 100 ; % R3 = 1e-03
     
     figure;
     hold("on");
@@ -29,7 +29,7 @@ for i = 1 : 3
         "KF (R3 = 1e-03)", ...
         Location="best");
     xlabel("time (s)");
-    ylabel("distance (cm)");
+    ylabel("distance (m)");
 
     file_name = "rec" + i + ".png";
     file_path = fullfile(folder_path,file_name);
