@@ -1,24 +1,18 @@
 clc;clear;
 
 %% Prepare backtest data
-data = load("C:\Users\Akkarasaknarong\Documents\GitHub\F2-2_FRA233_Lab-3_State-Estimation\MATLAB\Part1\DamperEstimate\5Nut_rec3.mat");
-time = data.data{2}.Values.Data(1:end,:); % Get Raw time
-dist  = data.data{1}.Values.Data(1:end,:); % Get Raw Distance
+data = load("C:\Users\Akkarasaknarong\Documents\GitHub\F2-2_FRA233_Lab-3_State-Estimation\MATLAB\Part3\Raw_playback_data\5Nut_rec1.mat");
+time = data.time; % Get Raw time
+dist  = data.dist; % Get Raw Distance
 
-dist = dist / 100; % Distance cm to m
-
-% Cut time 
-
-idx_start = find(time > 81.4799, 1, "first"); % step 1
-time = time(idx_start:end);
-dist = dist(idx_start:end);
-time = time - time(1);
-
-dist_end = 0.0974138 ; % Step 2
-dist  = dist - dist_end ; % Get Raw Distance (Displacement from equilibrium)
-
-stairs(time,dist)
-% ------------------------------------------- 
+% %% Math model
+math_model = load("C:\Users\Akkarasaknarong\Documents\GitHub\F2-2_FRA233_Lab-3_State-Estimation\MATLAB\Part3\Prepare with Mathmodel\model_5Nut_rec1.mat");
+time_model = math_model.data{1}.Values.Time; % Get Raw time
+dist_model  = math_model.data{1}.Values.Data; % Get Raw Distance
 
 % timeseries for Simulink
+hold on ;
+plot(time_model,dist_model);
+stairs(time,dist);
 replay_data = timeseries(dist, time);
+model = timeseries(dist_model,time_model);
